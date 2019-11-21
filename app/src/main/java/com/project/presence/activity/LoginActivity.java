@@ -12,9 +12,12 @@ import android.widget.Toast;
 
 import com.project.presence.R;
 import com.project.presence.model.Login;
+import com.project.presence.model.Presence;
+import com.project.presence.model.Schedule;
 import com.project.presence.model.User;
 import com.project.presence.service.LoginService;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
@@ -24,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private String email,password;
     private Login login;
-    private User userValid;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,29 +43,34 @@ public class LoginActivity extends AppCompatActivity {
                 login.setPassword(password);
                 progressBar.setVisibility(view.VISIBLE);
                 try {
-//                    AsyncTask<Login, Void, User> asd = service.execute(login);
-                    userValid = new LoginService().execute(login).get();
+                    user = new LoginService().execute(login).get();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(userValid);
-                userValidated(userValid, view);
+                System.out.println(user);
+                userValidated(user, view);
             }
         });
     }
 
-    private void userValidated(User userValid, View view){
-
-        if(userValid == null){
+    private void userValidated(User user, View view){
+        Intent intent;
+        if(user == null){
             progressBar.setVisibility(view.GONE);
             Toast.makeText(LoginActivity.this, "Dados incorretos", Toast.LENGTH_LONG).show();
-        }else if (userValid.getUserType().equals("teacher")){
-                startActivity(new Intent(getApplicationContext(), TeacherActivity.class));
+        }else if (user.getUserType().equals("teacher")){
+                intent = new Intent(getApplicationContext(), TeacherActivity.class);
+                intent.putExtra("id", user.get_id());
+                intent.putExtra("name", user.getName());
+                startActivity(intent);
                 finish();
-        }else if (userValid.getUserType().equals("student")){
-                startActivity(new Intent(getApplicationContext(), StudentActivity.class));
+        }else if (user.getUserType().equals("student")){
+            intent = new Intent(getApplicationContext(), StudentActivity.class);
+            intent.putExtra("id", user.get_id());
+            intent.putExtra("name", user.getName());
+            startActivity(intent);
                 finish();
         }else{
             progressBar.setVisibility(view.GONE);

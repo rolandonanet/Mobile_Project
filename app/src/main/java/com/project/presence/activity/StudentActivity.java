@@ -22,12 +22,13 @@ import android.view.MenuItem;
 
 public class StudentActivity extends AppCompatActivity {
     private BottomNavigationViewEx navigationView;
+    Intent intent = getIntent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setTitle("Nome do Aluno");
+        toolbar.setTitle(intent.getStringExtra("name"));
         navigationView = findViewById(R.id.navigationView);
         setSupportActionBar(toolbar);
         navigationView = findViewById(R.id.bottom_navigation_student);

@@ -27,9 +27,10 @@ public class TeacherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
         setContentView(R.layout.activity_teacher);
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setTitle("Nome do Professor");
+        toolbar.setTitle(intent.getStringExtra("name"));
         setSupportActionBar(toolbar);
         navigationView = findViewById(R.id.bottom_navigation_teacher);
         bottomNavigation(navigationView);
