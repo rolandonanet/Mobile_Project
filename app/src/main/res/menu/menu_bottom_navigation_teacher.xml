@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ic_home_teacher"
+        android:icon="@drawable/ic_home_black"
+        android:title="Home"/>
+
+    <item android:id="@+id/ic_falta_teacher"
+        android:icon="@drawable/ic_event_busy_black"
+        android:title="Presenças Alunos"/>
+
+    <item android:id="@+id/ic_aula_teacher"
+        android:icon="@drawable/ic_class_black"
+        android:title="Aulas"/>
+
+    <item android:id="@+id/ic_qrcode_teacher"
+        android:icon="@drawable/ic_developer_mode_black_24dp"
+        android:title="QRCode"/>
+</menu>
