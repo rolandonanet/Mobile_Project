@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Login {
+public class Schedule {
 
-    private String email;
-    private String password;
+    private String themeId;
+    private String schedule;
 
 }

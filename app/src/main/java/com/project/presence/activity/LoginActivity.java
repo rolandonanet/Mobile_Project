@@ -3,6 +3,7 @@ package com.project.presence.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,11 @@ import android.widget.Toast;
 
 import com.project.presence.R;
 import com.project.presence.model.Login;
+import com.project.presence.model.User;
 import com.project.presence.service.UserService;
+
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,8 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private String email,password;
     private Login login;
-    private UserService service;
-    private String userValid;
+    private User userValid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +41,29 @@ public class LoginActivity extends AppCompatActivity {
                 login.setEmail(email);
                 login.setPassword(password);
                 progressBar.setVisibility(view.VISIBLE);
-                userValid = service.login(login);
+                try {
+//                    AsyncTask<Login, Void, User> asd = service.execute(login);
+                    userValid = new UserService().execute(login).get();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(userValid);
                 userValidated(userValid, view);
             }
         });
     }
 
-    private void userValidated(String userValid, View view){
+    private void userValidated(User userValid, View view){
 
-        if (userValid.equals("Professor")){
+        if(userValid == null){
+            progressBar.setVisibility(view.GONE);
+            Toast.makeText(LoginActivity.this, "Dados incorretos", Toast.LENGTH_LONG).show();
+        }else if (userValid.getUserType().equals("teacher")){
                 startActivity(new Intent(getApplicationContext(), TeacherActivity.class));
                 finish();
-        }else if (userValid.equals("Aluno")){
+        }else if (userValid.getUserType().equals("student")){
                 startActivity(new Intent(getApplicationContext(), StudentActivity.class));
                 finish();
         }else{
@@ -60,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initializeComponents(){
         login = new Login();
-        service = new UserService();
         editLogin =  findViewById(R.id.editLogin);
         editPassword =  findViewById(R.id.editPassword);
         buttonAccess = findViewById(R.id.buttonAccess);
