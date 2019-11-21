@@ -29,6 +29,7 @@ public class QRCodeTeacherFragment extends Fragment {
     public QRCodeTeacherFragment() {
         // Required empty public constructor
     }
+
     ImageView qrcodeView;
 
     @Override
@@ -40,18 +41,17 @@ public class QRCodeTeacherFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_qrcode_teacher, container, false);
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(texto, BarcodeFormat.QR_CODE, 500,500);
+            BitMatrix bitMatrix = multiFormatWriter.encode(texto, BarcodeFormat.QR_CODE, 500, 500);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             qrcodeView = view.findViewById(R.id.qrcodeView);
             qrcodeView.setImageBitmap(bitmap);
-        }catch (WriterException e){
+        } catch (WriterException e) {
             e.printStackTrace();
         }
 
         return view;
     }
-
 
 
 }

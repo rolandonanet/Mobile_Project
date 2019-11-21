@@ -9,6 +9,7 @@ import com.project.presence.R;
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

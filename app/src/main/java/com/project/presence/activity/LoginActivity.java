@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editLogin, editPassword;
     private Button buttonAccess;
     private ProgressBar progressBar;
-    private String email,password;
+    private String email, password;
     private Login login;
     private User user;
 
@@ -55,35 +55,35 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void userValidated(User user, View view){
+    private void userValidated(User user, View view) {
         Intent intent;
-        if(user == null){
+        if (user == null) {
             progressBar.setVisibility(view.GONE);
             Toast.makeText(LoginActivity.this, "Dados incorretos", Toast.LENGTH_LONG).show();
-        }else if (user.getUserType().equals("teacher")){
-                intent = new Intent(getApplicationContext(), TeacherActivity.class);
-                intent.putExtra("id", user.get_id());
-                intent.putExtra("name", user.getName());
-                startActivity(intent);
-                finish();
-        }else if (user.getUserType().equals("student")){
+        } else if (user.getUserType().equals("teacher")) {
+            intent = new Intent(getApplicationContext(), TeacherActivity.class);
+            intent.putExtra("id", user.get_id());
+            intent.putExtra("name", user.getName());
+            startActivity(intent);
+            finish();
+        } else if (user.getUserType().equals("student")) {
             intent = new Intent(getApplicationContext(), StudentActivity.class);
             intent.putExtra("id", user.get_id());
             intent.putExtra("name", user.getName());
             startActivity(intent);
-                finish();
-        }else{
+            finish();
+        } else {
             progressBar.setVisibility(view.GONE);
             Toast.makeText(LoginActivity.this, "Dados incorretos", Toast.LENGTH_LONG).show();
         }
 
     }
 
-    private void initializeComponents(){
+    private void initializeComponents() {
         login = new Login();
-        editLogin =  findViewById(R.id.editLogin);
-        editPassword =  findViewById(R.id.editPassword);
+        editLogin = findViewById(R.id.editLogin);
+        editPassword = findViewById(R.id.editPassword);
         buttonAccess = findViewById(R.id.buttonAccess);
-        progressBar =  findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
     }
 }

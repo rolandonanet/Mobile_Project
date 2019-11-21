@@ -40,7 +40,7 @@ public class TeacherActivity extends AppCompatActivity {
 
     }
 
-    public void bottomNavigation(BottomNavigationViewEx viewEx){
+    public void bottomNavigation(BottomNavigationViewEx viewEx) {
         viewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -48,20 +48,20 @@ public class TeacherActivity extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                switch (menuItem.getItemId()){
-                    case R.id.ic_home_teacher :
+                switch (menuItem.getItemId()) {
+                    case R.id.ic_home_teacher:
                         fragmentTransaction.replace(R.id.viewPagerTeacher, new HomeTeacherFragment()).commit();
                         return true;
 
-                    case R.id.ic_miss_teacher :
+                    case R.id.ic_miss_teacher:
                         fragmentTransaction.replace(R.id.viewPagerTeacher, new MissTeacherFragment()).commit();
                         return true;
 
-                    case R.id.ic_class_teacher :
+                    case R.id.ic_class_teacher:
                         fragmentTransaction.replace(R.id.viewPagerTeacher, new ClassTeacherFragment()).commit();
                         return true;
 
-                    case R.id.ic_qrcode_teacher :
+                    case R.id.ic_qrcode_teacher:
                         fragmentTransaction.replace(R.id.viewPagerTeacher, new QRCodeTeacherFragment()).commit();
                         return true;
                 }

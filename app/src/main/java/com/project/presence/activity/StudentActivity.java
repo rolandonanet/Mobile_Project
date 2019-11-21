@@ -23,6 +23,7 @@ import android.view.MenuItem;
 public class StudentActivity extends AppCompatActivity {
     private BottomNavigationViewEx navigationView;
     Intent intent = getIntent();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,36 +41,36 @@ public class StudentActivity extends AppCompatActivity {
 
     }
 
-    public void bottomNavigation(BottomNavigationViewEx viewEx){
-            viewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+    public void bottomNavigation(BottomNavigationViewEx viewEx) {
+        viewEx.setOnNavigationItemSelectedListener(new BottomNavigationViewEx.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                   switch (menuItem.getItemId()){
-                       case R.id.ic_home_student :
-                           fragmentTransaction.replace(R.id.viewPagerStudent, new HomeStudentFragment()).commit();
-                           return true;
+                switch (menuItem.getItemId()) {
+                    case R.id.ic_home_student:
+                        fragmentTransaction.replace(R.id.viewPagerStudent, new HomeStudentFragment()).commit();
+                        return true;
 
-                       case R.id.ic_miss_student :
-                           System.out.println("-------------------------- teste ----------------");
-                           fragmentTransaction.replace(R.id.viewPagerStudent, new MissStudentFragment()).commit();
-                           return true;
+                    case R.id.ic_miss_student:
+                        System.out.println("-------------------------- teste ----------------");
+                        fragmentTransaction.replace(R.id.viewPagerStudent, new MissStudentFragment()).commit();
+                        return true;
 
-                       case R.id.ic_class_student :
-                           fragmentTransaction.replace(R.id.viewPagerStudent, new ClassStudentFragment()).commit();
-                           return true;
+                    case R.id.ic_class_student:
+                        fragmentTransaction.replace(R.id.viewPagerStudent, new ClassStudentFragment()).commit();
+                        return true;
 
-                       case R.id.ic_presence_student :
-                           fragmentTransaction.replace(R.id.viewPagerStudent, new PresenceStudentFragment()).commit();
-                           return true;
-                   }
-
-                    return false;
+                    case R.id.ic_presence_student:
+                        fragmentTransaction.replace(R.id.viewPagerStudent, new PresenceStudentFragment()).commit();
+                        return true;
                 }
-            });
+
+                return false;
+            }
+        });
     }
 
     @Override

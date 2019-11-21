@@ -53,7 +53,7 @@ public class PresenceStudentFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Toast.makeText(getActivity(), "Dados incorretos", Toast.LENGTH_LONG).show();
-     //   IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode, data);
-      //  System.out.println(result);
+        //   IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode, data);
+        //  System.out.println(result);
     }
 }
