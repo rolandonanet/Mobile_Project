@@ -4,11 +4,11 @@
         android:icon="@drawable/ic_home_black"
         android:title="Home"/>
 
-    <item android:id="@+id/ic_falta_teacher"
+    <item android:id="@+id/ic_miss_teacher"
         android:icon="@drawable/ic_event_busy_black"
         android:title="Presenças Alunos"/>
 
-    <item android:id="@+id/ic_aula_teacher"
+    <item android:id="@+id/ic_class_teacher"
         android:icon="@drawable/ic_class_black"
         android:title="Aulas"/>
 
