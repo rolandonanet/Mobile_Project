@@ -3,7 +3,6 @@ package com.project.presence.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,9 +13,8 @@ import android.widget.Toast;
 import com.project.presence.R;
 import com.project.presence.model.Login;
 import com.project.presence.model.User;
-import com.project.presence.service.UserService;
+import com.project.presence.service.LoginService;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
@@ -43,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 progressBar.setVisibility(view.VISIBLE);
                 try {
 //                    AsyncTask<Login, Void, User> asd = service.execute(login);
-                    userValid = new UserService().execute(login).get();
+                    userValid = new LoginService().execute(login).get();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {

@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 import com.project.presence.model.Login;
 import com.project.presence.model.User;
 
-public class UserService extends AsyncTask<Login, Void, User>{
+public class LoginService extends AsyncTask<Login, Void, User>{
 
     @Override
     protected void onPreExecute(){
@@ -21,6 +21,9 @@ public class UserService extends AsyncTask<Login, Void, User>{
         String json = gson.toJson(logins[0]);
 
         String responseJson = new GenericService().request("POST", "user/login", json);
+
+        if(responseJson == null)
+            return null;
 
         User response = gson.fromJson(responseJson, User.class);
 

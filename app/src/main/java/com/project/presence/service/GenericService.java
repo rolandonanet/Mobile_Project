@@ -12,6 +12,10 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class GenericService {
 
+    public String request(String method, String path){
+        return request(method, path, null);
+    }
+
     public String request(String method, String path, String json){
 
         String stringUrl = "https://presencelist.herokuapp.com/" + path;
@@ -24,10 +28,12 @@ public class GenericService {
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod(method);
             connection.setRequestProperty("Content-Type", "application/json");
-            byte[] outputInBytes = json.getBytes("UTF-8");
-            OutputStream os = connection.getOutputStream();
-            os.write(outputInBytes);
-            os.close();
+            if(json != null) {
+                byte[] outputInBytes = json.getBytes("UTF-8");
+                OutputStream os = connection.getOutputStream();
+                os.write(outputInBytes);
+                os.close();
+            }
             inputStream = connection.getInputStream();
             inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader reader = new BufferedReader(inputStreamReader);

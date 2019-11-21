@@ -1,5 +1,7 @@
 package com.project.presence.model;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +9,6 @@ import lombok.Setter;
 @Setter
 public class Presence {
     private String themeId;
-    private String day;
+    private Date day;
     private Boolean present;
 }
