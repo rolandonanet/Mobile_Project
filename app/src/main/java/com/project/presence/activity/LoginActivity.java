@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,10 +18,11 @@ import com.project.presence.model.Schedule;
 import com.project.presence.model.User;
 import com.project.presence.service.LoginService;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity{
 
     private EditText editLogin, editPassword;
     private Button buttonAccess;
@@ -59,24 +61,30 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent;
         if (user == null) {
             progressBar.setVisibility(view.GONE);
-            Toast.makeText(LoginActivity.this, "Dados incorretos", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, R.string.incorrect_data, Toast.LENGTH_LONG).show();
         } else if (user.getUserType().equals("teacher")) {
             intent = new Intent(getApplicationContext(), TeacherActivity.class);
-            intent.putExtra("id", user.get_id());
-            intent.putExtra("name", user.getName());
+            intent.putExtra("user", user);
             startActivity(intent);
-            finish();
+            editPassword.setText("");
+            editLogin.setText("");
         } else if (user.getUserType().equals("student")) {
             intent = new Intent(getApplicationContext(), StudentActivity.class);
-            intent.putExtra("id", user.get_id());
-            intent.putExtra("name", user.getName());
+            intent.putExtra("user", user);
             startActivity(intent);
-            finish();
+            editPassword.setText("");
+            editLogin.setText("");
         } else {
             progressBar.setVisibility(view.GONE);
-            Toast.makeText(LoginActivity.this, "Dados incorretos", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, R.string.incorrect_data, Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        finish();
+        System.exit(0);
     }
 
     private void initializeComponents() {

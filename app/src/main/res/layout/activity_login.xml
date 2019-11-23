@@ -39,7 +39,7 @@
         android:background="@drawable/background_caixa_texto"
         android:ems="10"
         android:hint="Password"
-        android:inputType="text|textPassword|textEmailAddress"
+        android:inputType="textPassword"
         android:padding="8dp"
         android:textColor="@color/cinza_medio"
         android:textColorHint="@android:color/white"

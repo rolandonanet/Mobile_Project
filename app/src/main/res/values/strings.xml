@@ -7,4 +7,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="teacher_materias_text">Matérias do dia</string>
+    <string name="teacher_allMaterias_text">Matérias</string>
+    <string name="incorrect_data">"Dados incorretos"</string>
 </resources>

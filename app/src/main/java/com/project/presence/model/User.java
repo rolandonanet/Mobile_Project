@@ -1,5 +1,6 @@
 package com.project.presence.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class User {
+public class User implements Serializable {
    private String _id;
    private String email;
    private String name;

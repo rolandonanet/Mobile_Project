@@ -11,4 +11,85 @@
         android:layout_height="match_parent"
         android:text="Teste Home" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/activity_teacher"
+        android:orientation="vertical"
+        android:background="@drawable/background_degrade">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_teacher_name"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/teacher_registrationTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:padding="10dp"
+                android:hint="Matricula Professor"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/teacher_dateTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:hint="data"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/teacher_subjectTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:text="@string/teacher_materias_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/currentSubjectsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                tools:context=".fragment.HomeTeacherFragment"
+                tools:showIn="@layout/fragment_home_teacher"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </FrameLayout>

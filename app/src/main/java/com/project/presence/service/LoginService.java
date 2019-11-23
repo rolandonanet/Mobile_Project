@@ -25,6 +25,7 @@ public class LoginService extends AsyncTask<Login, Void, User>{
         if(responseJson == null)
             return null;
 
+        System.out.println(responseJson);
         User response = gson.fromJson(responseJson, User.class);
 
         return response;

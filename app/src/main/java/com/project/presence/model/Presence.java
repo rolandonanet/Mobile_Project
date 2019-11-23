@@ -1,5 +1,6 @@
 package com.project.presence.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Getter;
@@ -7,8 +8,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Presence {
+public class Presence implements Serializable {
     private String themeId;
-    private Date day;
+    private String day;
     private Boolean present;
 }

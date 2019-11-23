@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.project.presence.model.StudentClass;
+import com.project.presence.model.StudentClassResponse;
 
 import java.util.List;
 
@@ -20,14 +21,18 @@ public class StudentClassListService extends AsyncTask<String, Void, List<Studen
 
         Gson gson = new Gson();
 
-        String responseJson = new GenericService().request("GET", "user/list");
+        String responseJson = new GenericService().request("GET", "studentClass/list?pageSize=999999999");
 
         if(responseJson == null)
             return null;
 
-        List<StudentClass> response = gson.fromJson(responseJson, new TypeToken<List<StudentClass>>(){}.getType());
+        System.out.println(responseJson);
 
-        return response;
+        StudentClassResponse response = gson.fromJson(responseJson, new TypeToken<StudentClassResponse>(){}.getType());
+
+        List<StudentClass> parsedResponse = response.getContent();
+
+        return parsedResponse;
     }
 
     @Override

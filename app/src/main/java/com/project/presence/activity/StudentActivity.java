@@ -13,23 +13,29 @@ import com.project.presence.fragment.HomeStudentFragment;
 import com.project.presence.fragment.HomeTeacherFragment;
 import com.project.presence.fragment.MissStudentFragment;
 import com.project.presence.fragment.PresenceStudentFragment;
+import com.project.presence.model.User;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 public class StudentActivity extends AppCompatActivity {
     private BottomNavigationViewEx navigationView;
-    Intent intent = getIntent();
+    Intent intent;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
+        intent = getIntent();
+        user = (User) intent.getSerializableExtra("user");
+        System.out.println(user);
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setTitle(intent.getStringExtra("name"));
+        toolbar.setTitle(user.getName());
         navigationView = findViewById(R.id.navigationView);
         setSupportActionBar(toolbar);
         navigationView = findViewById(R.id.bottom_navigation_student);

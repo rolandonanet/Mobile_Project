@@ -10,6 +10,7 @@ import lombok.Setter;
 public class Theme {
     private String _id;
     private String teacherId;
+    private String name;
     private List<String> schedules;
     private List<String> userIds;
 }

@@ -13,6 +13,7 @@ import com.project.presence.fragment.HomeStudentFragment;
 import com.project.presence.fragment.HomeTeacherFragment;
 import com.project.presence.fragment.MissTeacherFragment;
 import com.project.presence.fragment.QRCodeTeacherFragment;
+import com.project.presence.model.User;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,23 +21,35 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Switch;
+import android.widget.TextView;
 
 public class TeacherActivity extends AppCompatActivity {
     private BottomNavigationViewEx navigationView;
+    Intent intent;
+    User user;
+    TextView registrationTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_teacher);
+        intent = getIntent();
+        user = (User) intent.getSerializableExtra("user");
+        System.out.println(user);
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setTitle(intent.getStringExtra("name"));
+        toolbar.setTitle(user.getName());
+
         setSupportActionBar(toolbar);
         navigationView = findViewById(R.id.bottom_navigation_teacher);
         bottomNavigation(navigationView);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.viewPagerTeacher, new HomeTeacherFragment()).commit();
+        HomeTeacherFragment teacherFragment = new HomeTeacherFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("user", user);
+        teacherFragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.viewPagerTeacher, teacherFragment).commit();
 
     }
 
