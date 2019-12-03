@@ -28,11 +28,12 @@ public class TeacherActivity extends AppCompatActivity {
     Intent intent;
     User user;
     TextView registrationTV;
+    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
+        intent = getIntent();
         setContentView(R.layout.activity_teacher);
         intent = getIntent();
         user = (User) intent.getSerializableExtra("user");
@@ -43,6 +44,7 @@ public class TeacherActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         navigationView = findViewById(R.id.bottom_navigation_teacher);
         bottomNavigation(navigationView);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         HomeTeacherFragment teacherFragment = new HomeTeacherFragment();
@@ -63,19 +65,35 @@ public class TeacherActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()) {
                     case R.id.ic_home_teacher:
-                        fragmentTransaction.replace(R.id.viewPagerTeacher, new HomeTeacherFragment()).commit();
+                        HomeTeacherFragment homeTeacherFragment = new HomeTeacherFragment();
+                        bundle.putSerializable("user", user);
+                        homeTeacherFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerTeacher, homeTeacherFragment).commit();
+                        //fragmentTransaction.replace(R.id.viewPagerTeacher, new HomeTeacherFragment()).commit();
                         return true;
 
                     case R.id.ic_miss_teacher:
-                        fragmentTransaction.replace(R.id.viewPagerTeacher, new MissTeacherFragment()).commit();
+                        MissTeacherFragment missTeacherFragment = new MissTeacherFragment();
+                        bundle.putSerializable("user", user);
+                        missTeacherFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerTeacher, missTeacherFragment).commit();
+//                        fragmentTransaction.replace(R.id.viewPagerTeacher, new MissTeacherFragment()).commit();
                         return true;
 
                     case R.id.ic_class_teacher:
-                        fragmentTransaction.replace(R.id.viewPagerTeacher, new ClassTeacherFragment()).commit();
+                        ClassTeacherFragment classTeacherFragment = new ClassTeacherFragment();
+                        bundle.putSerializable("user", user);
+                        classTeacherFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerTeacher, classTeacherFragment).commit();
+//                        fragmentTransaction.replace(R.id.viewPagerTeacher, new ClassTeacherFragment()).commit();
                         return true;
 
                     case R.id.ic_qrcode_teacher:
-                        fragmentTransaction.replace(R.id.viewPagerTeacher, new QRCodeTeacherFragment()).commit();
+                        QRCodeTeacherFragment qrCodeTeacherFragment = new QRCodeTeacherFragment();
+                        bundle.putSerializable("user", user);
+                        qrCodeTeacherFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerTeacher, qrCodeTeacherFragment).commit();
+//                        fragmentTransaction.replace(R.id.viewPagerTeacher, new QRCodeTeacherFragment()).commit();
                         return true;
                 }
 

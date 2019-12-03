@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/teacher_homeGrid_listSubject"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_row="2"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="15dp"
+    android:columnCount="4"
+    android:elevation="4dp"
+    >
+
+    <TextView
+        android:id="@+id/teacher_homeGrid_subjectTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_columnSpan="3"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start"
+        android:hint="materia"
+        android:text="Arquitetura de Sistemas e Soluções de Tecnologia da Informação"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/teacher_homeGrid_timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_rowSpan="2"
+        android:layout_column="0"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:hint="horario"
+        android:text="19:00"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/teacher_homeGrid_classroomTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="start"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="start"
+        android:hint="sala"
+        android:text="i03-H" />
+
+    <TextView
+        android:id="@+id/teacher_homeGrid_studentAmmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="2"
+        android:layout_columnWeight="1"
+        android:layout_gravity="start"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="start"
+        android:hint="alunos"
+        android:text="54 alunos" />
+
+    <TextView
+        android:id="@+id/teacher_homeGrid_themeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:layout_column="3"
+        android:layout_columnWeight="2"
+        android:layout_gravity="end"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="start"
+        android:hint="turmas"
+        android:text="CCP3BN-MCB" />
+
+</GridLayout>

@@ -24,11 +24,6 @@ import java.util.List;
  */
 public class MissStudentFragment extends Fragment {
 
-    private RecyclerView missTeacherRecyclerView;
-    private HomeTeacherAdapter adapter;
-    private List<StudentClass> studentClasses;
-    private List<SchoolSubjectAdapterModel> schoolSubjects;
-
     public MissStudentFragment() {
         // Required empty public constructor
     }
@@ -38,29 +33,8 @@ public class MissStudentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_miss_teacher, container, false);
-        User user = (User) getArguments().getSerializable("user");
+        return inflater.inflate(R.layout.fragment_miss_student, container, false);
 
-        missTeacherRecyclerView = view.findViewById(R.id.listSubjectsRecyclerView);
-        //        studentClasses = new ArrayList<>();
-//
-//        try {
-//            studentClasses = new StudentClassListService().execute("").get();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        schoolSubjects = new Converter().studentClassToSubjectAdapter(studentClasses, user);
-//
-//        System.out.println("Stalling");
-//
-//        adapter = new HomeTeacherAdapter(this.getContext(), schoolSubjects);
-//        LinearLayoutManager llm = new LinearLayoutManager(this.getContext());
-//        missTeacherRecyclerView.setAdapter(adapter);
-//        missTeacherRecyclerView.setLayoutManager(llm);
-        return view;
     }
 
 }

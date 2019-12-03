@@ -13,32 +13,33 @@ import com.project.presence.model.adaptermodel.SchoolSubjectAdapterModel;
 
 import java.util.List;
 
-public class MissTeacherAdapter extends RecyclerView.Adapter <MissTeacherViewHolder> {
+public class HomeStudentAdapter extends RecyclerView.Adapter <HomeStudentViewHolder> {
     private Context context;
     private List<SchoolSubjectAdapterModel> schoolSubjects;
 
     // construtor
-    public MissTeacherAdapter(Context context, List<SchoolSubjectAdapterModel> schoolSubjects) {
+    public HomeStudentAdapter(Context context, List<SchoolSubjectAdapterModel> schoolSubjects) {
         this.context = context;
         this.schoolSubjects = schoolSubjects;
     }
 
-    public MissTeacherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HomeStudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View raiz = inflater.inflate(
-                R.layout.grid_teacher_miss_list_student,
+                R.layout.grid_student_home_list_subject,
                 parent,
                 false
         );
-        return new MissTeacherViewHolder(raiz);
+        return new HomeStudentViewHolder(raiz);
     }
 
-    public void onBindViewHolder(@NonNull MissTeacherViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HomeStudentViewHolder holder, int position) {
         SchoolSubjectAdapterModel schoolSubject = this.schoolSubjects.get(position);
-        holder.teacher_miss_studentTV.setText(String.valueOf(schoolSubject.getStudents()));
-//        holder.teacher_miss_list_studentGL.setBackgroundColor(222);
-//        holder.teacher_miss_presenceBtn.setText(schoolSubject.getSchoolSubject());
-//        holder.teacher_miss_abssentBtn.setText(schoolSubject.getClassroom());
+        holder.student_timeTV.setText(schoolSubject.getSchedule().toString());
+        holder.student_subjectTV.setText(schoolSubject.getSchoolSubject());
+        holder.student_clasroomTV.setText(schoolSubject.getClassroom());
+        holder.student_studentAmmountTV.setText(schoolSubject.getStudentAmmount().toString() + "alunos");
+        holder.student_themeTV.setText(schoolSubject.getSchoolTheme());
     }
 
     @Override

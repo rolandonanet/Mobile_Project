@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/student_subjectGrid_weekSubject"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_row="1"
+    android:columnCount="5"
+    android:layout_marginBottom="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginStart="5dp"
+    android:elevation="4dp"
+    >
+
+    <TextView
+        android:id="@+id/student_subjectGrid_dayTextView"
+        android:layout_width="0dp"
+        android:layout_columnWeight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="dia"
+        android:text="05"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"
+        />
+
+    <TextView
+        android:id="@+id/student_subjectGrid_weekDayTextView"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="dia"
+        android:text="Quarta"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/student_subjectGrid_hourTextView"
+        android:layout_width="0dp"
+        android:layout_columnWeight="2"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="hora"
+        android:text="18:00"
+        android:layout_row="0"
+        android:layout_column="2"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/student_subjectGrid_classroomTextView"
+        android:layout_width="0dp"
+        android:layout_columnWeight="2"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="sala"
+        android:text="i03-H"
+        android:layout_row="0"
+        android:layout_column="3"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/student_subjectGrid_themeTextView"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="turma"
+        android:text="CCP3BN-MCB"
+        android:layout_row="0"
+        android:layout_column="4"
+        android:layout_marginBottom="10dp"
+        />
+
+</GridLayout>

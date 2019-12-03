@@ -6,9 +6,53 @@
     tools:context=".fragment.ClassTeacherFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Teste Class" />-->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Teste Class" />
+        android:id="@+id/teacher_class"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/teacher_class_subject_viewTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:text="@string/allMaterias_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#ddd"
+            android:elevation="5dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/teacher_class_listSubjectsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                tools:context=".fragment.ClassTeacherFragment"
+                tools:showIn="@layout/fragment_class_teacher"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

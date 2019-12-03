@@ -1,53 +1,60 @@
 package com.project.presence.fragment;
 
-
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.project.presence.R;
-import com.project.presence.adapter.HomeTeacherAdapter;
 import com.project.presence.adapter.RecyclerItemClickListener;
+import com.project.presence.adapter.SubjectStudentAdapter;
 import com.project.presence.converter.Converter;
+import com.project.presence.model.SchoolSubject;
 import com.project.presence.model.StudentClass;
 import com.project.presence.model.User;
 import com.project.presence.model.adaptermodel.SchoolSubjectAdapterModel;
 import com.project.presence.service.StudentClassListService;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeTeacherFragment extends Fragment {
+public class SubjectStudentFragment extends Fragment {
 
-    private TextView registrationTV, teacherDateTV;
-    private RecyclerView homeTeacherRecyclerView;
-    private HomeTeacherAdapter adapter;
+    private TextView subjectTV;
+    private TextView currentdateTV;
+    private TextView classesAmmountTV;
+    private TextView abssentAmmountTV;
+    private TextView abssentPercentualTV;
+    private Button changeDateBtn;
+
+    private RecyclerView subjectStudentRecyclerView;
+    private SubjectStudentAdapter adapter;
     private List<StudentClass> studentClasses;
     private List<SchoolSubjectAdapterModel> schoolSubjects;
+    private SchoolSubject schoolSubject;
 
     private RequestQueue requestQueue;
 
     private Bundle bundle = new Bundle();
 
-    public HomeTeacherFragment() {
+    public SubjectStudentFragment() {
         // Required empty public constructor
     }
 
@@ -56,57 +63,42 @@ public class HomeTeacherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home_teacher, container, false);
+        View view = inflater.inflate(R.layout.fragment_subject_student, container, false);
         final User user = (User) getArguments().getSerializable("user");
 
-//        PROFESSOR
+        System.out.println("Stalling: " + schoolSubjects);
+        subjectTV = view.findViewById(R.id.student_subject_subjectTextView);
+        subjectTV.setText("Materia"); //TODO
 
-//        QRCodeDTO qrCode = new QRCodeDTO();
-//
-//        qrCode.setTeacherId(user.get_id());
-//
-//        QRCodeResponseDTO generatedQRCode = new QRCodeResponseDTO();
-//
-//        try {
-//            generatedQRCode = new GenerateQRCodeService().execute(qrCode).get();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        changeDateBtn = view.findViewById(R.id.student_subject_changeDateButton);
+        changeDateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
 
-//        ALUNO
-//
-//        QRCodeCheckDTO qrcodeCheck = new QRCodeCheckDTO();
-//
-//        qrcodeCheck.setEncodedQRCode(generatedQRCode.getMessage());
-//
-//        qrcodeCheck.setStudentId(user.get_id());
-//
-//        QRCodeResponseDTO studentQRCodeCheck = new QRCodeResponseDTO();
-//
-//        try {
-//            studentQRCodeCheck = new CheckQRCodeService().execute(qrcodeCheck).get();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        currentdateTV = view.findViewById(R.id.student_subject_currentDateTextView);
+        currentdateTV.setText(""); //TODO
 
+        classesAmmountTV = view.findViewById(R.id.student_subject_classAmmountTextView);
+        classesAmmountTV.setText("22"); //TODO
 
-        registrationTV = view.findViewById(R.id.teacher_home_registration_viewTextView);
-        registrationTV.setText("Matricula: " + user.getRegistration().toString());
+        abssentAmmountTV = view.findViewById(R.id.student_subject_abssentAmmountTextView);
+        abssentAmmountTV.setText("4"); //TODO
 
-        System.out.println("Matérias do user: " + user.getSchedules());
+        abssentPercentualTV = view.findViewById(R.id.student_subject_abssentPercentualTextView);
+        abssentPercentualTV.setText("10% de falta"); //TODO
 
-        teacherDateTV = view.findViewById(R.id.teacher_home_date_viewTextView);
+        /*
+        studentDateTV = view.findViewById(R.id.student_home_date_viewTextView);
         Date now = new Date();
         SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
         String currentDate = formater.format(now);
 //        teacherDataTV.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
-        teacherDateTV.setText(currentDate);
-
-        homeTeacherRecyclerView = view.findViewById(R.id.teacher_home_currentSubjectsRecyclerView);
+        studentDateTV.setText(currentDate);
+*/
+        subjectStudentRecyclerView = view.findViewById(R.id.student_subject_weekSubjectRecyclerView);
 
         studentClasses = new ArrayList<>();
 
@@ -120,27 +112,25 @@ public class HomeTeacherFragment extends Fragment {
 
         schoolSubjects = new Converter().studentClassToSubjectAdapter(studentClasses, user);
 
-        System.out.println("Stalling: " + schoolSubjects);
-
-
-        homeTeacherRecyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(getContext(), homeTeacherRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+/*
+        subjectStudentRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getContext(), subjectStudentRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
                         System.out.println("Entrou aqui");
                         schoolSubjects.get(position).getSubjectId();
-                        Intent intent = new Intent(getContext(), MissTeacherFragment.class);
+                        Intent intent = new Intent(getContext(), MissStudentFragment.class);
                         intent.putExtra("user", user);
                         intent.putExtra("schoolSubject", schoolSubjects.get(position).getSubjectId());
 
                         FragmentManager fragmentManager = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                        MissTeacherFragment missTeacherFragment = new MissTeacherFragment();
+                        MissStudentFragment missStudentFragment = new MissStudentFragment();
                         bundle.putSerializable("user", user);
                         bundle.putSerializable("schoolSubjects", schoolSubjects.get(position).getSubjectId());
-                        missTeacherFragment.setArguments(bundle);
-                        fragmentTransaction.replace(R.id.viewPagerTeacher, missTeacherFragment).commit();
+                        missStudentFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerStudent, missStudentFragment).commit();
 
                     }
 
@@ -150,10 +140,12 @@ public class HomeTeacherFragment extends Fragment {
                     }
                 })
         );
-        adapter = new HomeTeacherAdapter(this.getContext(), schoolSubjects);
+ */
+
+        adapter = new SubjectStudentAdapter(this.getContext(), schoolSubjects);
         LinearLayoutManager llm = new LinearLayoutManager(this.getContext());
-        homeTeacherRecyclerView.setAdapter(adapter);
-        homeTeacherRecyclerView.setLayoutManager(llm);
+        subjectStudentRecyclerView.setAdapter(adapter);
+        subjectStudentRecyclerView.setLayoutManager(llm);
 
         requestQueue = Volley.newRequestQueue(this.getContext());
 
@@ -161,5 +153,13 @@ public class HomeTeacherFragment extends Fragment {
         intent.putExtra("user", user);
         return view;
     }
+
+    /*
+    @Override
+    public void onBackPressed(){
+        finish();
+        System.exit(0);
+    }
+    */
 
 }

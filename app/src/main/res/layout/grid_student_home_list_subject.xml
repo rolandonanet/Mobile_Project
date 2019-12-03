@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/student_homeGrid_listSubject"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_row="2"
@@ -12,7 +13,7 @@
     >
 
     <TextView
-        android:id="@+id/teacher_subjectTextView"
+        android:id="@+id/student_homeGrid_subjectTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_row="0"
@@ -21,6 +22,7 @@
         android:layout_columnWeight="1"
         android:layout_gravity="fill_horizontal"
         android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="start"
         android:hint="materia"
@@ -29,7 +31,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/teacher_timeTextView"
+        android:id="@+id/student_homeGrid_timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="0"
@@ -42,7 +44,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/teacher_classroomTextView"
+        android:id="@+id/student_homeGrid_classroomTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="1"
@@ -56,7 +58,7 @@
         android:text="i03-H" />
 
     <TextView
-        android:id="@+id/teacher_studentAmmountTextView"
+        android:id="@+id/student_homeGrid_studentAmmountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="1"
@@ -70,7 +72,7 @@
         android:text="54 alunos" />
 
     <TextView
-        android:id="@+id/teacher_themeTextView"
+        android:id="@+id/student_homeGrid_themeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="1"

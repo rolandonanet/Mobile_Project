@@ -12,7 +12,10 @@ public class SchoolSubjectAdapterModel implements Serializable {
     private String schoolSubject;
     private String classroom;
     private Integer studentAmmount;
+    private List<String> students;
+    private String student;
     private String schoolTheme;
-    private List<String> schedule;
+    private List<String> schedules;
+    private String schedule;
     private String subjectId;
 }

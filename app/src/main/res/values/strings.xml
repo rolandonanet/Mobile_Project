@@ -7,7 +7,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="teacher_materias_text">Matérias do dia</string>
-    <string name="teacher_allMaterias_text">Matérias</string>
+    <string name="materias_text">Matérias do dia</string>
+    <string name="allMaterias_text">Matérias</string>
     <string name="incorrect_data">"Dados incorretos"</string>
+    <string name="teacher_student_text">"Presença dos alunos"</string>
+    <string name="change_date">Mudar Data</string>
+    <string name="n_classes">Nº Aulas:</string>
+    <string name="n_abssents">Nº Faltas:</string>
 </resources>

@@ -6,31 +6,73 @@
     tools:context=".fragment.MissTeacherFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Teste Miss" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Teste Miss" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/activity_teacher"
+        android:id="@+id/teacher_miss"
         android:orientation="vertical"
-        android:background="@drawable/background_degrade">
+        >
 
         <TextView
-            android:id="@+id/teacher_subjectTextView"
+            android:id="@+id/teacher_miss_student_viewTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:padding="10dp"
-            android:text="@string/teacher_allMaterias_text"
+            android:text="@string/teacher_student_text"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:background="@color/colorPrimary"
             android:layout_margin="10dp"
             android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#ddd"
+            android:elevation="5dp"
             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/teacher_miss_nameLinearLayout"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            android:background="@drawable/background_botao"
+            >
+
+            <TextView
+                android:id="@+id/teacher_miss_subject_viewTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:padding="10dp"
+                android:hint="Matéria"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/teacher_miss_date_viewTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:hint="data"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +83,7 @@
             >
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listSubjectsRecyclerView"
+                android:id="@+id/teacher_miss_listStudentRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical"
@@ -52,5 +94,8 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
+
 
 </FrameLayout>

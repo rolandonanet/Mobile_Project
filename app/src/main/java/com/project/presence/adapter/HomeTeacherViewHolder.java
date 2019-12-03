@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.project.presence.R;
 
 public class HomeTeacherViewHolder extends RecyclerView.ViewHolder {
+    public TextView teacher_timeTV;
     public TextView teacher_subjectTV;
     public TextView teacher_clasroomTV;
     public TextView teacher_studentAmmountTV;
@@ -15,9 +16,10 @@ public class HomeTeacherViewHolder extends RecyclerView.ViewHolder {
 
     public HomeTeacherViewHolder (View itemView) {
         super (itemView);
-        this.teacher_subjectTV = itemView.findViewById(R.id.teacher_subjectTextView);
-        this.teacher_clasroomTV = itemView.findViewById(R.id.teacher_classroomTextView);
-        this.teacher_studentAmmountTV = itemView.findViewById(R.id.teacher_studentAmmountTextView);
-        this.teacher_themeTV = itemView.findViewById(R.id.teacher_themeTextView);
+        this.teacher_timeTV = itemView.findViewById(R.id.teacher_homeGrid_timeTextView);
+        this.teacher_subjectTV = itemView.findViewById(R.id.teacher_homeGrid_subjectTextView);
+        this.teacher_clasroomTV = itemView.findViewById(R.id.teacher_homeGrid_classroomTextView);
+        this.teacher_studentAmmountTV = itemView.findViewById(R.id.teacher_homeGrid_studentAmmountTextView);
+        this.teacher_themeTV = itemView.findViewById(R.id.teacher_homeGrid_themeTextView);
     }
 }

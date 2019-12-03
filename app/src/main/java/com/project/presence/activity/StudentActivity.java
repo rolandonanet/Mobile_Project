@@ -12,6 +12,7 @@ import com.project.presence.fragment.ClassStudentFragment;
 import com.project.presence.fragment.HomeStudentFragment;
 import com.project.presence.fragment.HomeTeacherFragment;
 import com.project.presence.fragment.MissStudentFragment;
+import com.project.presence.fragment.MissTeacherFragment;
 import com.project.presence.fragment.PresenceStudentFragment;
 import com.project.presence.model.User;
 
@@ -26,6 +27,7 @@ public class StudentActivity extends AppCompatActivity {
     private BottomNavigationViewEx navigationView;
     Intent intent;
     User user;
+    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +45,11 @@ public class StudentActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.viewPagerStudent, new HomeStudentFragment()).commit();
-
+        HomeStudentFragment studentFragment = new HomeStudentFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("user", user);
+        studentFragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.viewPagerStudent, studentFragment).commit();
     }
 
     public void bottomNavigation(BottomNavigationViewEx viewEx) {
@@ -57,20 +62,35 @@ public class StudentActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()) {
                     case R.id.ic_home_student:
-                        fragmentTransaction.replace(R.id.viewPagerStudent, new HomeStudentFragment()).commit();
+                        HomeStudentFragment homeStudentFragment= new HomeStudentFragment();
+                        bundle.putSerializable("user", user);
+                        homeStudentFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerStudent, homeStudentFragment).commit();
+//                        fragmentTransaction.replace(R.id.viewPagerStudent, new HomeStudentFragment()).commit();
                         return true;
 
                     case R.id.ic_miss_student:
-                        System.out.println("-------------------------- teste ----------------");
-                        fragmentTransaction.replace(R.id.viewPagerStudent, new MissStudentFragment()).commit();
+                        MissStudentFragment missStudentFragment= new MissStudentFragment();
+                        bundle.putSerializable("user", user);
+                        missStudentFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerStudent, missStudentFragment).commit();
+//                        fragmentTransaction.replace(R.id.viewPagerStudent, new MissStudentFragment()).commit();
                         return true;
 
                     case R.id.ic_class_student:
-                        fragmentTransaction.replace(R.id.viewPagerStudent, new ClassStudentFragment()).commit();
+                        ClassStudentFragment classStudentFragment= new ClassStudentFragment();
+                        bundle.putSerializable("user", user);
+                        classStudentFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerStudent, classStudentFragment).commit();
+//                        fragmentTransaction.replace(R.id.viewPagerStudent, new ClassStudentFragment()).commit();
                         return true;
 
                     case R.id.ic_presence_student:
-                        fragmentTransaction.replace(R.id.viewPagerStudent, new PresenceStudentFragment()).commit();
+                        PresenceStudentFragment presenceStudentFragment= new PresenceStudentFragment();
+                        bundle.putSerializable("user", user);
+                        presenceStudentFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerStudent, presenceStudentFragment).commit();
+//                        fragmentTransaction.replace(R.id.viewPagerStudent, new PresenceStudentFragment()).commit();
                         return true;
                 }
 
