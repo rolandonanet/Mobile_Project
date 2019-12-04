@@ -1,4 +1,4 @@
-package com.project.presence.adapter;
+package com.project.presence.adapter.Holder;
 
 import android.view.View;
 import android.widget.TextView;
@@ -8,14 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.project.presence.R;
 
 public class HomeStudentViewHolder extends RecyclerView.ViewHolder {
-    public TextView student_timeTV;
-    public TextView student_subjectTV;
-    public TextView student_clasroomTV;
-    public TextView student_studentAmmountTV;
-    public TextView student_themeTV;
+    public TextView student_timeTV, student_subjectTV, student_clasroomTV, student_studentAmmountTV, student_themeTV;
 
     public HomeStudentViewHolder(View itemView) {
-        super (itemView);
+        super(itemView);
         this.student_timeTV = itemView.findViewById(R.id.student_homeGrid_timeTextView);
         this.student_subjectTV = itemView.findViewById(R.id.student_homeGrid_subjectTextView);
         this.student_clasroomTV = itemView.findViewById(R.id.student_homeGrid_classroomTextView);

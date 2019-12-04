@@ -1,23 +1,20 @@
 package com.project.presence.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.presence.R;
-import com.project.presence.fragment.HomeTeacherFragment;
+import com.project.presence.adapter.Holder.HomeTeacherViewHolder;
 import com.project.presence.model.adaptermodel.SchoolSubjectAdapterModel;
 
 import java.util.List;
 
-public class HomeTeacherAdapter extends RecyclerView.Adapter <HomeTeacherViewHolder> {
+public class HomeTeacherAdapter extends RecyclerView.Adapter<HomeTeacherViewHolder> {
     private Context context;
     private List<SchoolSubjectAdapterModel> schoolSubjects;
 
