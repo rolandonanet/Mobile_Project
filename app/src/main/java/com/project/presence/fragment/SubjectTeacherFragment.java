@@ -77,7 +77,6 @@ public class SubjectTeacherFragment extends Fragment {
             SchoolSubjectAdapterModel schoolSubjectTeste = (SchoolSubjectAdapterModel) getArguments().getSerializable("schoolSubject");
 
             System.out.println("Matéria: " + schoolSubjectTeste);
-            System.out.println("Matéria Array: " + schoolSubjectsTeste);
             System.out.println("SchooSubject no inicio" + schoolSubjectTeste + "\nSchoolSubjects no inicio" + schoolSubjectsTeste);
         }
 

@@ -104,8 +104,7 @@ public class HomeTeacherFragment extends Fragment {
                         SubjectTeacherFragment subjectTeacherFragment = new SubjectTeacherFragment();
 
                         bundle.putSerializable("user", user);
-                        bundle.putSerializable("schoolSubject", schoolSubjects.get(position).getSubjectId());
-                        bundle.putParcelable("teste", (Parcelable) schoolSubjects);
+                        bundle.putSerializable("schoolSubject", schoolSubjects.get(position));
                         subjectTeacherFragment.setArguments(bundle);
                         fragmentTransaction.replace(R.id.viewPagerTeacher, subjectTeacherFragment).commit();
                         System.out.println("Matéria escolhida: " + schoolSubjects.get(position).getSubjectId());
