@@ -55,6 +55,7 @@ public class SubjectTeacherFragment extends Fragment {
     private RelativeLayout calendarRL;
     private List<SchoolSubjectAdapterModel> schoolSubjects;
     private SchoolSubject schoolSubject;
+    private SchoolSubjectAdapterModel currentSchoolSubject;
 
     private RequestQueue requestQueue;
 
@@ -79,8 +80,12 @@ public class SubjectTeacherFragment extends Fragment {
             System.out.println("Matéria: " + schoolSubjectTeste);
             System.out.println("SchooSubject no inicio" + schoolSubjectTeste + "\nSchoolSubjects no inicio" + schoolSubjectsTeste);
         }
+        currentSchoolSubject = (SchoolSubjectAdapterModel) getArguments().getSerializable("schoolSubject");
 
+        subjectTV = view.findViewById(R.id.teacher_subject_subjectTextView);
+        subjectTV.setText(currentSchoolSubject.getSchoolSubject());
         studentClasses = new ArrayList<>();
+
 
         try {
             studentClasses = new StudentClassListService().execute("").get();
@@ -94,8 +99,7 @@ public class SubjectTeacherFragment extends Fragment {
 
         System.out.println("SchoolSubjects gerada: " + schoolSubjects);
 
-        subjectTV = view.findViewById(R.id.teacher_subject_subjectTextView);
-        subjectTV.setText("Materia"); //TODO pegar o nome da matéria selecionada anteriormente
+
 
         String date = getArguments().getString("date");
 
@@ -135,6 +139,7 @@ public class SubjectTeacherFragment extends Fragment {
                                 SubjectTeacherFragment subjectTeacherFragment = new SubjectTeacherFragment();
                                 dateBundle.putSerializable("date", date);
                                 dateBundle.putSerializable("user", user);
+                                dateBundle.putSerializable("schoolSubject", currentSchoolSubject);
                                 subjectTeacherFragment.setArguments(dateBundle);
                                 fragmentTransaction.replace(R.id.viewPagerTeacher, subjectTeacherFragment).commit();
 
