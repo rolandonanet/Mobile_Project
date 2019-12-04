@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/teacher_currentStudentGrid_detailsGridLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_row="1"
+    android:columnCount="5"
+    android:layout_marginBottom="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginStart="5dp"
+    android:elevation="4dp"
+    >
+
+    <TextView
+        android:id="@+id/teacher_currentStudentGrid_dayTextView"
+        android:layout_width="0dp"
+        android:layout_columnWeight="1"
+        android:layout_height="wrap_content"
+        android:hint="dia"
+        android:text="05"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        />
+
+    <TextView
+        android:id="@+id/teacher_currentStudentGrid_weekDayTextView"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="dia"
+        android:text="Quarta"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_gravity="center_vertical"
+        />
+
+    <Button
+        android:id="@+id/teacher_currentStudentGrid_abssentButton"
+        android:layout_width="0dp"
+        android:layout_columnWeight="3"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="sala"
+        android:text="@string/abssent"
+        android:layout_gravity="top"
+        android:layout_row="0"
+        android:layout_column="2"
+        android:layout_marginBottom="10dp"
+        android:textSize="12sp"
+        />
+
+    <Button
+        android:id="@+id/teacher_currentStudentGrid_presenceButton"
+        android:layout_width="0dp"
+        android:layout_columnWeight="3"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="hora"
+        android:text="@string/presence"
+        android:layout_row="0"
+        android:layout_column="3"
+        android:layout_marginBottom="10dp"
+        android:textSize="12sp"
+        android:layout_gravity="top"
+        />
+
+</GridLayout>

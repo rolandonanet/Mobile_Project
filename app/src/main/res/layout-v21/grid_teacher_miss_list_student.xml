@@ -1,58 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/teacher_missGrid_listStudent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_row="1"
-    android:columnCount="3"
     android:layout_marginBottom="5dp"
     android:layout_marginEnd="5dp"
     android:layout_marginStart="5dp"
     android:elevation="4dp"
-    android:useDefaultMargins="true"
     >
 
     <TextView
         android:id="@+id/teacher_missGrid_studentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="3"
         android:layout_marginLeft="5dp"
         android:hint="materia"
         android:text="Leonadardo Pereira"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:gravity="start"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        android:layout_gravity="center_vertical"
-        />
-
-    <Button
-        android:id="@+id/teacher_missGrid_presenceButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:hint="sala"
-        android:text="Presente"
-        android:layout_row="0"
-        android:layout_column="1"
-        android:gravity="center"
-        android:layout_gravity="center"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
         />
 
     <Button
         android:id="@+id/teacher_missGrid_abssentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
         android:hint="alunos"
         android:text="Falta"
-        android:layout_row="0"
-        android:layout_column="2"
-        android:gravity="center"
-        android:layout_gravity="center"
+        android:layout_toLeftOf="@id/teacher_missGrid_presenceButton"
+        android:textAllCaps="false"
         />
 
-</GridLayout>
+    <Button
+        android:id="@+id/teacher_missGrid_presenceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="sala"
+        android:text="Presente"
+        android:layout_alignParentEnd="true"
+        android:textAllCaps="false"
+        />
+
+</RelativeLayout>

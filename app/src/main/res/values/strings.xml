@@ -12,6 +12,13 @@
     <string name="incorrect_data">"Dados incorretos"</string>
     <string name="teacher_student_text">"Presença dos alunos"</string>
     <string name="change_date">Mudar Data</string>
-    <string name="n_classes">Nº Aulas:</string>
-    <string name="n_abssents">Nº Faltas:</string>
+    <string name="n_classes">Nº Aulas: </string>
+    <string name="n_abssents">Nº Faltas: </string>
+    <string name="sala">Sala: </string>
+    <string name="student_ammount">Alunos: </string>
+    <string name="visualize_subject">Clique para ver detalhes</string>
+    <string name="student_subject_text">Visão geral da matéria</string>
+    <string name="choose_date">Escolha uma data para visualizar</string>
+    <string name="presence">Presente</string>
+    <string name="abssent">Ausente</string>
 </resources>

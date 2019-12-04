@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity{
             editPassword.setText("");
             editLogin.setText("");
         } else {
-            progressBar.setVisibility(view.GONE);
+            progressBar.setVisibility(View.GONE);
             Toast.makeText(LoginActivity.this, R.string.incorrect_data, Toast.LENGTH_LONG).show();
         }
 

@@ -11,55 +11,56 @@
 <!--        android:layout_height="match_parent"-->
 <!--        android:text="@string/hello_blank_fragment" />-->
     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/student_subject"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/student_subject"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ddd"
+        android:elevation="5dp"
         >
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/student_subject_subjectTextView"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#ddd"
-            android:elevation="5dp"
-            >
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:hint="Matéria"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:gravity="start"
+            android:layout_gravity="center"
+            />
 
-            <TextView
-                android:id="@+id/student_subject_subjectTextView"
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:padding="10dp"
-                android:hint="Matéria"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                />
+        <Button
+            android:id="@+id/student_subject_changeDateButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/change_date"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/background_botao"
+            android:backgroundTint="#aaa"
+            android:layout_marginRight="5dp" />
 
-            <Button
-                android:id="@+id/student_subject_changeDateButton"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="@string/change_date"
-                android:textAllCaps="false"
-                android:layout_gravity="center"
-                android:layout_marginEnd="5dp"
-                android:background="@drawable/background_botao"
-                android:backgroundTint="#aaa"
-                android:layout_marginRight="5dp" />
-
-        </LinearLayout>
+    </LinearLayout>
 
         <TextView
             android:id="@+id/student_subject_currentDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:hint="Data"
             android:gravity="center"
             android:background="#ddd"

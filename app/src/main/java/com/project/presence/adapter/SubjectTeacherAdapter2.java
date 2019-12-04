@@ -13,32 +13,31 @@ import com.project.presence.model.adaptermodel.SchoolSubjectAdapterModel;
 
 import java.util.List;
 
-public class MissTeacherAdapter extends RecyclerView.Adapter <MissTeacherViewHolder> {
+public class SubjectTeacherAdapter2 extends RecyclerView.Adapter <SubjectTeacherViewHolder> {
     private Context context;
     private List<SchoolSubjectAdapterModel> schoolSubjects;
 
     // construtor
-    public MissTeacherAdapter(Context context, List<SchoolSubjectAdapterModel> schoolSubjects) {
+    public SubjectTeacherAdapter2(Context context, List<SchoolSubjectAdapterModel> schoolSubjects) {
         this.context = context;
         this.schoolSubjects = schoolSubjects;
     }
 
-    public MissTeacherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SubjectTeacherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View raiz = inflater.inflate(
-                R.layout.grid_teacher_miss_list_student,
+                R.layout.grid_teacher_subject_current_subject_data,
                 parent,
                 false
         );
-        return new MissTeacherViewHolder(raiz);
+        return new SubjectTeacherViewHolder(raiz);
     }
 
-    public void onBindViewHolder(@NonNull MissTeacherViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SubjectTeacherViewHolder holder, int position) {
         SchoolSubjectAdapterModel schoolSubject = this.schoolSubjects.get(position);
-        holder.teacher_miss_studentTV.setText("Rafael Silva Sanches");//String.valueOf(schoolSubject.getStudents()));
-//        holder.teacher_miss_list_studentGL.setBackgroundColor(222);
-        holder.teacher_miss_presenceBtn.setText("Presente");
-        holder.teacher_miss_abssentBtn.setText("Falta");
+        holder.teacher_subjectGrid_classroomTextView.setText("I03-H");//schoolSubject.getSchedule().toString());
+        holder.teacher_subjectGrid_studentAmmountTextView.setText("40 Alunos");//schoolSubject.getSchoolSubject());
+        holder.teacher_subject_themeTextView.setText("CCP3BN-MCB");//schoolSubject.getClassroom());
     }
 
     @Override

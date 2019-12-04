@@ -93,21 +93,18 @@ public class HomeStudentFragment extends Fragment {
                 new RecyclerItemClickListener(getContext(), homeStudentRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        System.out.println("Entrou aqui");
+                        System.out.println("Clicou em uma matéria: ");
                         schoolSubjects.get(position).getSubjectId();
-                        Intent intent = new Intent(getContext(), MissStudentFragment.class);
-                        intent.putExtra("user", user);
-                        intent.putExtra("schoolSubject", schoolSubjects.get(position).getSubjectId());
 
                         FragmentManager fragmentManager = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
                         SubjectStudentFragment subjectStudentFragment = new SubjectStudentFragment();
+
                         bundle.putSerializable("user", user);
                         bundle.putSerializable("schoolSubject", schoolSubjects.get(position).getSubjectId());
                         subjectStudentFragment.setArguments(bundle);
                         fragmentTransaction.replace(R.id.viewPagerStudent, subjectStudentFragment).commit();
-
+                        System.out.println(schoolSubjects.get(position).getSubjectId());
                     }
 
                     @Override

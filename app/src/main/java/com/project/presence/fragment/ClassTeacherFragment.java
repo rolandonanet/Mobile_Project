@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.project.presence.R;
 import com.project.presence.adapter.ClassTeacherAdapter;
@@ -80,14 +81,15 @@ public class ClassTeacherFragment extends Fragment {
                         FragmentManager fragmentManager = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                        MissTeacherFragment missTeacherFragment = new MissTeacherFragment();
+                        SubjectTeacherFragment subjectTeacherFragment = new SubjectTeacherFragment();
                         bundle.putSerializable("user", user);
-                        missTeacherFragment.setArguments(bundle);
-                        fragmentTransaction.replace(R.id.viewPagerTeacher, missTeacherFragment).commit();
+                        subjectTeacherFragment.setArguments(bundle);
+                        fragmentTransaction.replace(R.id.viewPagerTeacher, subjectTeacherFragment).commit();
                     }
 
                     @Override public void onLongItemClick(View view, int position) {
                         // do whatever
+                        Toast.makeText(getContext(), R.string.visualize_subject, Toast.LENGTH_LONG).show();
                     }
                 })
         );

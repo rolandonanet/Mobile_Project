@@ -22,6 +22,13 @@ import com.journeyapps.barcodescanner.camera.CameraManager;
 import com.project.presence.R;
 import com.project.presence.activity.LoginActivity;
 import com.project.presence.activity.StudentActivity;
+import com.project.presence.model.QRCodeCheckDTO;
+import com.project.presence.model.QRCodeDTO;
+import com.project.presence.model.QRCodeResponseDTO;
+import com.project.presence.model.User;
+import com.project.presence.service.CheckQRCodeService;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +45,26 @@ public class PresenceStudentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_presence_student, container, false);
+        final User user = (User) getArguments().getSerializable("user");
+
+        // ALUNO
+        QRCodeResponseDTO generatedQRCode = new QRCodeResponseDTO();
+        QRCodeCheckDTO qrcodeCheck = new QRCodeCheckDTO();
+
+        qrcodeCheck.setEncodedQRCode(generatedQRCode.getMessage());
+        qrcodeCheck.setStudentId(user.get_id());
+
+        QRCodeResponseDTO studentQRCodeCheck = new QRCodeResponseDTO();
+
+        try {
+            studentQRCodeCheck = new CheckQRCodeService().execute(qrcodeCheck).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         IntentIntegrator integrator = new IntentIntegrator(getActivity());
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
         integrator.setPrompt("Scan!!");
@@ -46,7 +73,8 @@ public class PresenceStudentFragment extends Fragment {
         integrator.setBarcodeImageEnabled(false);
         integrator.setOrientationLocked(false);
         integrator.initiateScan();
-        return inflater.inflate(R.layout.fragment_presence_student, container, false);
+
+        return view;
     }
 
     @Override

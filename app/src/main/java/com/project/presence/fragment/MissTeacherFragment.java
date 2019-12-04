@@ -40,7 +40,7 @@ public class MissTeacherFragment extends Fragment {
     private RecyclerView missTeacherRecyclerView;
     private MissTeacherAdapter adapter;
     private List<StudentClass> studentClasses;
-    private List<SchoolSubjectAdapterModel> schoolSubjects = new ArrayList<>();
+    private List<SchoolSubjectAdapterModel> schoolSubjects;
     private SchoolSubjectAdapterModel schoolSubject;
     private Bundle bundle = new Bundle();
 
@@ -58,11 +58,17 @@ public class MissTeacherFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_miss_teacher, container, false);
         final User user = (User) getArguments().getSerializable("user");
 
-        missTeacherRecyclerView = view.findViewById(R.id.teacher_miss_listStudentRecyclerView);
         teacherMissSubjectTV = view.findViewById(R.id.teacher_miss_subject_viewTextView);
-        teacherMissDateTV = view.findViewById(R.id.teacher_home_date_viewTextView);
+        teacherMissDateTV = view.findViewById(R.id.teacher_miss_date_viewTextView);
+        Date now = new Date();
+        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDate = formater.format(now);
+//        teacherDataTV.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+        teacherMissDateTV.setText(currentDate);
 
-        schoolSubject = new SchoolSubjectAdapterModel();
+        missTeacherRecyclerView = view.findViewById(R.id.teacher_miss_listStudentRecyclerView);
+
+        studentClasses = new ArrayList<>();
 
         try {
             studentClasses = new StudentClassListService().execute("").get();
@@ -77,12 +83,7 @@ public class MissTeacherFragment extends Fragment {
 
 //        teacherMissSubjectTV.setText("Matéria: " + schoolSubjects);
 
-        System.out.println("Matéria: " + schoolSubject.getSubjectId());
-
-        Date now = new Date();
-        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
-        String currentDate = formater.format(now);
-        teacherMissDateTV.setText(currentDate);
+        System.out.println("Matéria: " + user.getSchedules());
 
         missTeacherRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getContext(), missTeacherRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {

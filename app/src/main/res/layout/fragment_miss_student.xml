@@ -6,9 +6,168 @@
     tools:context=".fragment.MissStudentFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Teste Miss" />-->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Teste Miss" />
+        android:id="@+id/student_miss"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/student_miss_subject_viewTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:text="@string/student_subject_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#ddd"
+            android:elevation="5dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/student_miss_nameLinearLayout"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            android:background="@drawable/background_botao"
+            >
+
+            <TextView
+                android:id="@+id/student_miss_subject_TextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:padding="10dp"
+                android:hint="Matéria"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/student_miss_date_viewTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:hint="data"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <GridLayout
+            android:id="@+id/student_miss_dataGridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:columnCount="5"
+            android:elevation="4dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_gravity="start"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="start"
+                android:text="@string/n_classes"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/student_miss_classAmmountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="start"
+                android:hint="qtde"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/n_abssents"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/student_miss_abssentAmmountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="3"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="start"
+                android:hint="qtde"
+                />
+
+            <TextView
+                android:id="@+id/student_miss_abssentPercentualTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="4"
+                android:layout_gravity="end"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="porcentagem"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                />
+
+        </GridLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_margin="10dp"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/student_miss_subjectInfoRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                tools:context=".fragment.MissStudentFragment"
+                tools:showIn="@layout/fragment_miss_student"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

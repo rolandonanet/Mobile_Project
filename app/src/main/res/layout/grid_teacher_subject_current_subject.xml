@@ -1,0 +1,136 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<GridLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:id="@+id/teacher_subjectGrid_currentSubject"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_row="1"-->
+<!--    android:columnCount="4"-->
+<!--    android:layout_marginBottom="5dp"-->
+<!--    android:layout_marginEnd="5dp"-->
+<!--    android:layout_marginStart="5dp"-->
+<!--    android:elevation="4dp"-->
+<!--    >-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/teacher_subjectGrid_numberRATextView"-->
+<!--        android:layout_width="90dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:hint="RA"-->
+<!--        android:text="81722279"-->
+<!--        android:layout_row="0"-->
+<!--        android:layout_column="0"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/teacher_subjectGrid_studentNameTextView"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:hint="Nome Aluno"-->
+<!--        android:text="Rafael Silva Sanches"-->
+<!--        android:layout_row="0"-->
+<!--        android:layout_column="1"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/teacher_subjectGrid_abssentButton"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_row="0"-->
+<!--        android:layout_column="2"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:background="@drawable/ic_clear_black_24dp"-->
+<!--        />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/teacher_subjectGrid_presenceButton"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_row="0"-->
+<!--        android:layout_column="3"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:background="@drawable/ic_check_black_24dp"-->
+<!--        />-->
+
+<!--</GridLayout>-->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/teacher_subjectGrid_currentSubject"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:padding="5dp"
+    android:elevation="4dp"
+    android:background="@drawable/background_botao"
+    >
+
+    <TextView
+        android:id="@+id/teacher_subjectGrid_numberRATextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="RA"
+        android:text="81722279"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/teacher_subjectGrid_studentAbssentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="Qtde de falta"
+        android:text="Falta(s): 4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        />
+
+    <TextView
+        android:id="@+id/teacher_subjectGrid_studentNameTextView"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:hint="Nome Aluno"
+        android:text="Rafael Silva Sanches"
+        android:textSize="16sp"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/teacher_subjectGrid_numberRATextView"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/teacher_subjectGrid_numberRATextView" />
+
+    <Button
+        android:id="@+id/teacher_subjectGrid_abssentButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ic_clear_black_24dp"
+        android:layout_toLeftOf="@id/teacher_subjectGrid_presenceButton"
+        android:layout_toStartOf="@id/teacher_subjectGrid_presenceButton"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="10dp"
+        />
+
+    <Button
+        android:id="@+id/teacher_subjectGrid_presenceButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/ic_check_black_24dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+
+        />
+
+
+
+</RelativeLayout>

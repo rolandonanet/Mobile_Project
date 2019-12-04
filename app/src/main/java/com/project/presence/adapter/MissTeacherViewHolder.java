@@ -3,6 +3,7 @@ package com.project.presence.adapter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +14,7 @@ public class MissTeacherViewHolder extends RecyclerView.ViewHolder {
     public TextView teacher_miss_studentTV;
     public Button teacher_miss_presenceBtn;
     public Button teacher_miss_abssentBtn;
-    public GridLayout teacher_miss_list_studentGL;
+    public RelativeLayout teacher_miss_list_studentGL;
 
     public MissTeacherViewHolder(View itemView) {
         super (itemView);
